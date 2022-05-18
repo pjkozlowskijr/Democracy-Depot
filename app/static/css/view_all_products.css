@@ -52,6 +52,12 @@ ul{
     list-style-type: none;
 }
 
+#instruction{
+    font-size: 12px;
+    color: rgb(214, 40, 40);
+    margin-bottom: 12px;
+}
+
 #sort_submit{
     width: 10vw;
     margin: auto;

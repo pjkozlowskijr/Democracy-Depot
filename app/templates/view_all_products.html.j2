@@ -13,6 +13,7 @@ View Offerings
     <div class="col-md-3 mt-5 mx-3">
         <h2>Sort & Filter</h2>
         <hr>
+        <p id="instruction">*Must select sort & filter option.</p>
         <form action="{{url_for('main.view_all_products')}}" method = "POST">
             {{form.hidden_tag()}}
             <div class="form_lines">
