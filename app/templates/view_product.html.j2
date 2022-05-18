@@ -1,0 +1,23 @@
+{% extends "base.html.j2" %}
+
+{% block css %}
+    <link rel="stylesheet" href="{{url_for('static',filename='css/view_product.css')}}">
+{% endblock %}
+
+{% block title %}
+{{product.name}}
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-5 my-4">
+        <img src="{{product.img}}" class="img-fluid">
+    </div>
+    <div class="col-md-7 my-4">
+        <h1>{{product.name.title()}}</h1>
+        <h2>{{"${:,.2f}".format(product.price)}}</h2>
+        <p>{{product.desc}}</p>
+        <a class="btn btn-danger" href="{{url_for('main.add_to_cart', id=product.id)}}">Add to Cart&nbsp;<i class="bi bi-plus-square"></i></a>
+    </div>
+</div>
+{% endblock %}

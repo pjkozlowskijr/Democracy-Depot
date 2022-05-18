@@ -1,0 +1,24 @@
+{% extends "base.html.j2" %}
+
+{% block css %}
+    <link rel="stylesheet" href="{{url_for('static',filename='css/admin.css')}}">
+{% endblock %}
+
+{% block title %}
+Admin Tools
+{% endblock %}
+
+{% block content %}
+<div id="admin">
+    <h1>Admin Tools</h1>
+    <hr>
+    <div id="tools">
+        <ul>
+            <li><a class="btn btn-danger" href="{{url_for('auth.add_category')}}">Add Category</a></li>
+            <li><a class="btn btn-danger" href="{{url_for('auth.add_product')}}">Add Product</a></li>
+            <li><a class="btn btn-danger" href="{{url_for('auth.remove_category')}}">Remove Category</a></li>
+            <li><a class="btn btn-danger" href="{{url_for('auth.remove_product')}}">Remove Product</a></li>
+        </ul>
+    </div>
+</div>
+{% endblock %}

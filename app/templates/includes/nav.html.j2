@@ -1,0 +1,49 @@
+<nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+        <span class="navbar-brand">
+        <img src="https://res.cloudinary.com/detcvmtip/image/upload/v1652680533/ecommerce_images/fist_cnyfcx.png" alt="Raised fist." width="30" class="d-inline-block align-text-middle">
+        Democracy Depot
+        </span>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navlinks" aria-controls="navlinks" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navlinks">
+            <div class="navbar-nav me-auto">
+                <a class="nav-link" href="{{url_for('main.index')}}">Home</a>
+                <a class="nav-link" href="{{url_for('main.view_all_products')}}">View Products</a>
+            </div>                                   
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link dropdown-toggle" href="#" id="navdropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                {% if current_user.is_authenticated %}
+                {{current_user.first_name}}
+                {% else %}
+                Account
+                {% endif %}
+                <i class="bi bi-person-fill"></i>
+                </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navdropdown">
+                        {% if current_user.is_authenticated %}            
+                        <li><a class="dropdown-item" href="{{url_for('auth.edit_profile')}}">Edit Profile</a></li>
+                            {% if current_user.is_admin %}
+                            <li><a class="dropdown-item" href="{{url_for('auth.admin_tools')}}">Admin Tools</a></li>
+                            {% endif %}
+                        <li><a class="dropdown-item" href="{{url_for('auth.logout')}}">Logout</a></li>
+                        {% else %}
+                        <li><a class="dropdown-item" href="{{url_for('auth.login')}}">Login</a></li>
+                        <li><a class="dropdown-item" href="{{url_for('auth.register')}}">Register</a></li>
+                        {% endif %}
+                           
+                    </ul>
+                <a class="nav-link" href="{{url_for('main.view_cart', id=current_user.id)}}">Cart&nbsp;<i class="bi bi-cart3"></i>
+                {% if current_user.is_authenticated %}
+                    {% if current_user.cart.count() > 0 %}
+                    <span class="position-absolute top-4 start-96 translate-middle badge rounded-pill bg-light text-bg-light">{{current_user.cart.count()}}
+                    <span class="visually-hidden">cart items</span>
+                    </span>
+                    {% endif %}
+                {% endif %}
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>

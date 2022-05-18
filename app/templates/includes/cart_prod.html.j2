@@ -1,0 +1,21 @@
+<div class="card mb-3">
+    <div class="row g-0">
+        <div class="col-md-3">
+            <a href="{{url_for('main.view_product', id=product.id)}}">
+            <img src="{{product.img}}" class="img-fluid rounded-start" alt="Picture of {{product.name}}.">
+            </a>
+        </div>
+        <div class="col-md-9">
+            <div class="card-body">
+                <a href="{{url_for('main.view_product', id=product.id)}}">
+                <h2 class="card-title">{{product.name.title()}}</h2>
+                </a>
+                <h3 class="card-text">{{"${:,.2f}".format(product.price)}}</h3>
+                <div class="d-flex justify-content-between align-items-center">
+                    <p>Quantity: {{current_user.item_quantity(product.id)}}</p>
+                    <a class="btn btn-danger" href="{{url_for('main.remove_from_cart', id=product.id)}}">Remove&nbsp;<i class="bi bi-trash3"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

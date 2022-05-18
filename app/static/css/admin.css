@@ -1,0 +1,29 @@
+#admin{
+    width: 50vw;
+    margin: auto;
+}
+
+h1{
+    text-align: center;
+    padding-top: 16px;
+}
+
+.btn{
+    width: 25vw;
+}
+
+#tools{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+ul{
+    list-style: none;
+    padding: 0;
+    margin-top: 3vh;
+}
+
+li{
+    margin-bottom: 5vh;
+}

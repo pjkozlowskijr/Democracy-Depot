@@ -1,0 +1,49 @@
+{% extends "base.html.j2" %}
+
+{% block css %}
+    <link rel="stylesheet" href="{{url_for('static',filename='css/view_all_products.css')}}">
+{% endblock %}
+
+{% block title %}
+View Offerings
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-3 mt-5 mx-3">
+        <h2>Sort & Filter</h2>
+        <hr>
+        <form action="{{url_for('main.view_all_products')}}" method = "POST">
+            {{form.hidden_tag()}}
+            <div class="form_lines">
+                {{ form.category.label(class="form-label form-lines")}}
+                <ul>
+                {% for subfield in form.category %}
+                    <li>{{ subfield }} {{ subfield.label }}</li>
+                {% endfor %}
+                </ul>
+            </div>
+            <div class="form_lines">
+                {{ form.sort.label(class="form-label form-lines")}}
+                <ul>
+                {% for subfield in form.sort %}
+                    <li>{{ subfield }} {{ subfield.label }}</li>
+                {% endfor %}
+                </ul>
+            </div>
+            <div id="sort_submit" class="form_lines">
+                {{form.submit(class="btn form-control")}}
+            </div>
+
+        </form>
+    </div>
+    <div class="col-md-8 my-3 mx-3">
+    <h1>Available Products</h1>
+        <div id="prods" class="overflow-auto">
+            {% for product in products %}
+                {% include "./includes/prod_card.html.j2" %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

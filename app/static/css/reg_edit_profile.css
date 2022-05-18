@@ -1,0 +1,40 @@
+.reg_form{
+    width: 50vw;
+    margin: auto;
+}
+
+h1{
+    padding-top: 16px;
+}
+
+p{
+    margin-bottom: 0;
+    color: rgb(214, 40, 40);
+    font-size: 12px;
+    font-style: italic;
+}
+
+hr{
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.reg_form .form-label{
+    margin: 0;
+}
+
+.form-control{
+    margin-bottom: 3vh;
+}
+
+#radio{
+    margin-bottom: 3vh;
+}
+
+#id_label{
+    margin-right: 24px;
+}
+
+.btn{
+    margin-bottom: 16px;
+}

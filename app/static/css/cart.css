@@ -1,0 +1,74 @@
+.card{
+    height: 25vh;
+}
+
+.row{
+    height: 82vh;
+}
+
+#prods{
+    height: 75vh;
+}
+
+.img-fluid{
+    margin: 3px;
+    height: 23vh;
+}
+
+h1{
+    font-size: 32px;
+}
+
+h2{
+    font-size: 24px;
+}
+
+h3{
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+
+a{
+    color: black;
+    text-decoration: none;
+}
+
+p{
+    margin-bottom: 0; 
+}
+
+.btn{
+    padding-top: 2px;
+    padding-bottom: 2px;
+    margin-right: 16px;
+}
+
+ul{
+    list-style-type: none;
+}
+
+#clear{
+    width: 100%;
+}
+
+th{
+    text-align: right;
+    width: 15vw;
+    height: 5vh;
+}
+
+#invoice{
+    margin-bottom: 5vh;
+}
+
+#invoice tr:last-child{
+    border-top: 1px solid black;
+}
+
+#empty{
+    height: 82vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

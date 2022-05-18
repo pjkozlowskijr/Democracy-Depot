@@ -1,0 +1,28 @@
+{% extends "base.html.j2" %}
+
+{% block css %}
+    <link rel="stylesheet" href="{{url_for('static',filename='css/login.css')}}">
+{% endblock %}
+
+{% block title %}
+Remove Category
+{% endblock %}
+
+{% block content %}
+<div id="login_form">
+    <h1>Remove Category</h1>
+    <form action="{{url_for('auth.remove_category')}}" method="POST">
+        {{rem_cat_form.hidden_tag()}}
+        <div>
+            {{rem_cat_form.name.label(class="form-label")}}
+            {{rem_cat_form.name(class="form-control")}}
+            {% for error in rem_cat_form.name.errors %}
+                <small>{{error}}</small>
+            {% endfor %}
+        </div>
+        <div>
+            {{rem_cat_form.submit(class="btn btn-danger form-control")}}
+        </div>
+    </form>
+</div>
+{% endblock %}

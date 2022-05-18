@@ -1,0 +1,20 @@
+#login_form{
+    width: 50vw;
+    margin: auto;
+}
+
+h1{
+    padding-top: 16px;
+}
+
+.form-label{
+    margin: 0;
+}
+
+.form-control{
+    margin-bottom: 3vh;
+}
+
+.btn{
+    margin-bottom: 3vh;
+}

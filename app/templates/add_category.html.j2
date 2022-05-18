@@ -1,0 +1,28 @@
+{% extends "base.html.j2" %}
+
+{% block css %}
+    <link rel="stylesheet" href="{{url_for('static',filename='css/login.css')}}">
+{% endblock %}
+
+{% block title %}
+Add Category
+{% endblock %}
+
+{% block content %}
+<div id="login_form">
+    <h1>Add Category</h1>
+    <form action="{{url_for('auth.add_category')}}" method="POST">
+        {{cat_form.hidden_tag()}}
+        <div>
+            {{cat_form.name.label(class="form-label")}}
+            {{cat_form.name(class="form-control")}}
+            {% for error in cat_form.name.errors %}
+                <small>{{error}}</small>
+            {% endfor %}
+        </div>
+        <div>
+            {{cat_form.submit(class="btn btn-danger form-control")}}
+        </div>
+    </form>
+</div>
+{% endblock %}

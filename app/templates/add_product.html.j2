@@ -1,0 +1,57 @@
+{% extends "base.html.j2" %}
+
+{% block css %}
+    <link rel="stylesheet" href="{{url_for('static',filename='css/reg_edit_profile.css')}}">
+{% endblock %}
+
+{% block title %}
+Add Product
+{% endblock %}
+
+{% block content %}
+<div class="reg_form">
+    <h1>Add Product</h1> 
+    <hr> 
+    <form action="{{url_for('auth.add_product')}}" method="POST">
+        {{prod_form.hidden_tag()}}
+        <div id="radio">
+            {{prod_form.category_id.label(id="id_label", class="form-label")}}
+            {% for subfield in prod_form.category_id %}
+                {{subfield}}
+                {{subfield.label}}
+            {% endfor %}
+        </div>
+        <div>
+            {{prod_form.name.label(class="form-label")}}
+            {{prod_form.name(class="form-control")}}
+            {% for error in prod_form.name.errors %}
+                <small>{{error}}</small>
+            {% endfor %}
+        </div>
+        <div>
+            {{prod_form.desc.label(class="form-label")}}
+            {{prod_form.desc(class="form-control")}}
+            {% for error in prod_form.desc.errors %}
+                <small>{{error}}</small>
+            {% endfor %}
+        </div>
+        <div>
+            {{prod_form.price.label(class="form-label")}}
+            {{prod_form.price(class="form-control")}}
+            {% for error in prod_form.price.errors %}
+                <small>{{error}}</small>
+            {% endfor %}
+        </div>
+        <div>
+            {{prod_form.img.label(class="form-label")}}
+            {{prod_form.img(class="form-control")}}
+            {% for error in prod_form.img.errors %}
+                <small>{{error}}</small>
+            {% endfor %}
+        </div>
+        <div>
+            {{prod_form.submit(class="btn btn-danger form-control")}}
+        </div>
+    </form>
+
+{% endblock%}

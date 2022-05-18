@@ -1,0 +1,67 @@
+{% extends "base.html.j2" %}
+
+{% block css %}
+    <link rel="stylesheet" href="{{url_for('static',filename='css/reg_edit_profile.css')}}">
+{% endblock %}
+
+{% block title %}
+    {% if current_user.is_authenticated %}
+    Edit Profile
+    {% else %}
+    Register
+    {% endif %}
+{% endblock%}
+
+{% block content%}
+<div class="reg_form">
+    {% if current_user.is_authenticated %}
+    <h1>Edit Profile</h1>
+    <p>All fields required.</p>
+    {% else %}
+    <h1>Register</h1>
+    <p>All fields required.</p>
+    {% endif %}
+    <hr>
+    <form action="{{url_for('auth.edit_profile')}}" method="POST">
+        {{form.hidden_tag()}}
+        <div class="form_lines">
+            {{form.first_name.label(class="form-label")}}
+            {{form.first_name(class="form-control", value=current_user.first_name)}}
+            {% for error in form.first_name.errors %}
+                <small>{{error}}</small>
+            {% endfor %}
+        </div>
+        <div class="form_lines">
+            {{form.last_name.label(class="form-label")}}
+            {{form.last_name(class="form-control", value=current_user.last_name)}}
+            {% for error in form.last_name.errors %}
+                <small>{{error}}</small>
+            {% endfor %}
+        </div>
+        <div class="form_lines">
+            {{form.email.label(class="form-label")}}
+            {{form.email(class="form-control", value=current_user.email)}}
+            {% for error in form.email.errors %}
+                <small>{{error}}</small>
+            {% endfor %}
+        </div>
+        <div class="form_lines">
+            {{form.password.label(class="form-label")}}
+            {{form.password(class="form-control", value=current_user.password)}}
+            {% for error in form.password.errors %}
+                <small>{{error}}</small>
+            {% endfor %}
+        </div>
+        <div class="form_lines">
+            {{form.confirm_password.label(class="form-label")}}
+            {{form.confirm_password(class="form-control", value=current_user.confirm_password)}}
+            {% for error in form.confirm_password.errors %}
+                <small>{{error}}</small>
+            {% endfor %}
+        </div>
+        <div class="form_lines">
+            {{form.submit(class="btn btn-danger form-control")}}
+        </div>
+    </form>
+</div>
+{% endblock %}

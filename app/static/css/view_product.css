@@ -1,0 +1,17 @@
+.row{
+    height: 82vh;
+}
+
+h1{
+    font-size: 48px;
+    margin-bottom: 16px;
+}
+
+h2{
+    font-size: 32px;
+    margin-bottom: 16px;
+}
+
+p{
+    margin-bottom: 24px;
+}

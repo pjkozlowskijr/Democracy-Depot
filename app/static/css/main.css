@@ -1,0 +1,50 @@
+body{
+    font-family: "Roboto Mono", monospace;
+    background: rgb(29, 53, 87)
+}
+
+.container{
+    margin-top: 5vh;
+    margin-bottom: 3vh;
+    background: rgb(237, 244, 246);
+    min-height: 82vh;
+}
+
+.navbar{
+    background-color: rgb(214, 40, 40);
+}
+
+.navbar-brand{
+    padding: 0;
+    color: white;
+    margin-right: 32px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.navbar-brand:hover{
+    color: white;
+}
+
+.nav-link{
+    color: white;
+    padding: 0;
+    font-size: 16px;
+}
+
+.nav-link:hover{
+    color: rgb(29, 53, 87);
+    font-weight: bold;
+}
+
+.nav-link:not(:last-child){
+    margin-right: 16px;
+}
+
+.dropdown-menu{
+    margin-right: 7vw;
+}
+
+.dropdown-toggle:visited{
+    color: white;
+}

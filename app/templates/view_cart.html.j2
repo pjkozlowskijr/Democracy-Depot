@@ -1,0 +1,44 @@
+{% extends "base.html.j2" %}
+
+{% block css %}
+    <link rel="stylesheet" href="{{url_for('static',filename='css/cart.css')}}">
+{% endblock %}
+
+{% block title %}
+{{current_user.name}}'s Cart
+{% endblock %}
+
+{% block content %}
+{% if current_user.cart.count() > 0 %}
+    <div class="row">
+        <div id="prods" class="col-md-7 my-4 overflow-auto">
+            {% for product in cart %}
+                {% include "./includes/cart_prod.html.j2" %}
+            {% endfor %}
+        </div>
+        <div class="col-md-5 my-4">
+            <h1>Your Shopping Cart</h1>
+            <hr>
+            <div id="invoice">
+                <table>
+                    {% for product in cart %}
+                    <tr>
+                        <th>{{product.name.title()}}:</th>
+                        <td>{{"${:,.2f}".format(current_user.item_quantity(product.id)*product.price)}}</td>
+                    </tr>
+                    {% endfor %}
+                    <tr>
+                        <th>Total:</th>
+                        <td>{{"${:,.2f}".format(total)}}</td>
+                    </tr>
+                </table>
+            </div>
+            <a id="clear" class="btn btn-danger" href="{{url_for('main.clear_cart')}}">Clear Cart&nbsp;<i class="bi bi-trash3"></i></a>
+        </div>
+    </div>
+{% else %}
+    <div id="empty">
+        <h1> Your cart is currently empty.&nbsp;<i class="bi bi-emoji-frown"></i></h1>
+    </div>
+{% endif %}
+{% endblock %}
