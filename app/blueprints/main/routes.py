@@ -15,10 +15,10 @@ def view_all_products():
         try:
             filter_choice = form.category.data
             sort_choice = form.sort.data
-            if filter_choice == "goods":
-                filter = 2
-            elif filter_choice == "services":
-                filter = 3
+            if filter_choice == "clubs":
+                filter = 10
+            elif filter_choice == "accessories":
+                filter = 11
             products = Product.query.filter_by(category_id=filter)
             if sort_choice:
                 if sort_choice == "asc_name":

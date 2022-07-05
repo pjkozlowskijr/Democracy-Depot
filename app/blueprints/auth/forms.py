@@ -33,7 +33,7 @@ class ProductForm(FlaskForm):
     desc = StringField("Description", validators=[DataRequired()])
     price = IntegerField("Price", validators=[DataRequired()])
     img = StringField("Image URL", validators=[DataRequired()])
-    category_id = RadioField("Category:", validators=[DataRequired()], choices=[(2, "Goods"), (3, "Services")])
+    category_id = RadioField("Category:", validators=[DataRequired()], choices=[(11, "Accessories"), (10, "Clubs")])
     submit = SubmitField("Add Product")
 
 class CategoryForm(FlaskForm):
