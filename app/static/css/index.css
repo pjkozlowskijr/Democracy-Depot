@@ -1,9 +1,18 @@
-#lefty{
+#rory{
     width: 100%;
 }
 
 #intro{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
+}
+
+#intro h1{
+    font-size: 75px;
+    text-align: center;
+}
+
+#intro p{
+    font-size: 30px;
 }
